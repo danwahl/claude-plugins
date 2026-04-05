@@ -9,7 +9,6 @@ description: |
   evaluator in a forked context for clean, focused review.
 allowed-tools:
   - Read
-  - Write
   - Edit
   - Grep
 context: fork
@@ -65,15 +64,9 @@ After tightening, make sure the rewrite has life in it:
 
 ## Output
 
-Return four sections:
+Read the file at `$ARGUMENTS`. Then:
 
-**1. Issues**: each weak spot found, quoted, categorized P0/P1/P2
-**2. Rewrite**: full improved version
-**3. Changes**: brief summary of the major edits
-**4. Second pass**: re-read the rewrite, ask "what could be sharper?", fix what remains or confirm it's clean
-
----
-
-## Text to audit
-
-$ARGUMENTS
+**1. Issues**: list each weak spot found, quoted and categorized P0/P1/P2
+**2. Edit**: apply the full rewrite directly to the file using Edit, resolving all issues while preserving meaning and voice
+**3. Changes**: brief summary of the major edits made
+**4. Second pass**: re-read the file, apply any remaining fixes with Edit, then confirm it's clean or note what was changed

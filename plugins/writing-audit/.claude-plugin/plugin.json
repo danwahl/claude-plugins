@@ -1,0 +1,9 @@
+{
+  "name": "writing-audit",
+  "version": "1.0.0",
+  "description": "Audit and sharpen writing using craft principles.",
+  "author": {
+    "name": "Dan Wahl",
+    "email": "hi@danwahl.net"
+  }
+}

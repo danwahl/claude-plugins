@@ -11,10 +11,7 @@
       "name": "writing-audit",
       "description": "Audit and sharpen writing using craft principles",
       "version": "1.0.0",
-      "source": {
-        "source": "path",
-        "path": "./plugins/writing-audit"
-      },
+      "source": "./plugins/writing-audit",
       "category": "utilities"
     }
   ]

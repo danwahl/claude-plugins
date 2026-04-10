@@ -46,6 +46,10 @@ claude --plugin-dir ./plugins/your-plugin-name
 
 Then invoke with `/your-plugin-name:skill-name`.
 
+## Using skills on Claude.ai
+
+Claude.ai does not support Claude Code plugins, but it does accept Skills uploaded as zips. Run `/package-skills` (or `scripts/package-skills.sh`) to build one zip per skill under `dist/`, then upload them manually in Claude.ai.
+
 ## Versioning
 
 Uses semantic versioning (MAJOR.MINOR.PATCH). Bump the version in both `plugin.json` and `marketplace.json` — Claude Code uses the version to determine whether to update, so unchanged versions won't propagate.

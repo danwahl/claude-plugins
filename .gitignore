@@ -1,1 +1,5 @@
 dist/
+
+# learning-lab writes session logs / cards / experiments here when run from the
+# repo root (a .claude/ dir exists, so it resolves to project-scoped). User data.
+.claude/learning-lab/

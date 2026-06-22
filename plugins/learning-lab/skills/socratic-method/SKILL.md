@@ -80,6 +80,8 @@ When the learner wants to stop:
    - "Want to log this session?" — if yes, resolve the directory per
      `persistence.md` and append a `log/<topic>-<date>.md` note (what was
      studied, their free-recall summary, what they missed). Announce the path.
+     If a `plans/<topic>.md` exists, add the `Plan:` back-reference line to the
+     log and tick the step this session advanced.
 
 ## Tone
 

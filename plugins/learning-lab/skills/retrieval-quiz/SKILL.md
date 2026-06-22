@@ -58,4 +58,6 @@ read** — were they over- or under-confident overall? Then offer:
 - "Make cards from the ones you missed?" (`spaced-repetition`).
 - "Save these results?" — if yes, resolve the directory per `persistence.md` and
   append to `log/<topic>-<date>.md` (items, scores, confidence, calibration gap).
-  Announce the path. This is also the data the `learning-experiment` skill reads.
+  Announce the path. If a `plans/<topic>.md` exists, add the `Plan:`
+  back-reference line and tick the step this quiz advanced. This is also the data
+  the `learning-experiment` skill reads.

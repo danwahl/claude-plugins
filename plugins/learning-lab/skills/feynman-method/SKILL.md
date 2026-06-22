@@ -60,4 +60,6 @@ Then give them **one transfer prompt**: a question that applies the concept in a
 new context, to test whether the understanding is real or memorized. Offer to
 turn the shaky/missing items into a `retrieval-quiz` or `spaced-repetition`
 cards. If they want the report saved, resolve the directory per `persistence.md`,
-append to `log/<topic>-<date>.md`, and announce the path.
+append to `log/<topic>-<date>.md`, and announce the path. If a `plans/<topic>.md`
+exists, add the `Plan:` back-reference line to the log and tick the step this
+session advanced.

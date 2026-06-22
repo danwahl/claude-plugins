@@ -11,6 +11,7 @@ description: |
 allowed-tools:
   - Read
   - Write
+  - Edit
   - Bash
   - Glob
 ---
@@ -22,11 +23,21 @@ job is to turn that into a concrete, evidence-based plan and then start them on
 it — not to teach the topic yourself in one shot.
 
 **First**, read `${CLAUDE_PLUGIN_ROOT}/references/learning-science.md` so the
-plan is grounded in the evidence and you can route by the right principle. If the
-learner wants the plan saved, also read
-`${CLAUDE_PLUGIN_ROOT}/references/persistence.md`.
+plan is grounded in the evidence and you can route by the right principle. Also
+read `${CLAUDE_PLUGIN_ROOT}/references/persistence.md` — you persist the plan and
+may resume an existing one.
 
 The topic is in `$ARGUMENTS`. If empty, ask what they want to learn.
+
+## Step 0 — Resume if a plan already exists
+
+Before calibrating, resolve the data directory (per `persistence.md`) and check
+for `plans/<topic>.md`. **If one exists, don't re-derive the plan and don't
+re-interview the learner.** Read it, summarize where they are (which steps are
+done, what's next, any steps now due by their `when:` date), and pick up at the
+next unchecked step — handing off to its skill. Re-run the calibration below only
+when there's no plan yet, or the learner explicitly wants to revise it (then
+update the existing plan in place rather than starting a new one).
 
 ## The one rule (everything you prescribe serves it)
 
@@ -89,16 +100,37 @@ Frame it in the report's stages:
 - **Stage 3 (ongoing):** revisit scaffolding as they move from novice toward
   advanced (expertise reversal again).
 
-## Step 3 — Start them now
+## Step 3 — Save the plan as a living document
+
+Write the plan to `plans/<topic>.md` (per `persistence.md`): the header context
+(goal, level, time, interest, and a short prose line on *why* they're learning it
+and what they've tried) plus the arc as a step checklist. This is what lets a
+future `tutor` session resume instead of re-deriving — so capture the context,
+not just the steps. Give the date-driven steps (spaced reviews, delayed/transfer
+tests) a `when:` target date relative to today (`date +%F`; never invent dates).
+Announce the path. If a plan already existed and you're revising, update it in
+place — never clobber the header.
+
+## Step 4 — Offer to schedule (only if you can)
+
+The later steps carry dates. **If a calendar event-creation tool is available
+this session** (e.g. a connected Google Calendar MCP), offer to add the dated
+steps to the learner's calendar — each a **reminder-to-self event with no
+attendees** that nudges them to return and run the next skill. Strictly opt-in.
+Don't invite anyone else: the harness blocks the agent from emailing invitations
+to inferred addresses, so only add an attendee if the learner explicitly hands
+you the email and asks. **If no calendar tool is available, don't pretend** —
+just point them at the `when:` dates in the plan and suggest they set their own
+reminders. The plan is the source of truth either way; the calendar is a
+convenience, never a dependency.
+
+## Step 5 — Start them now
 
 Don't end on a plan they have to act on later. Offer to begin the first session
 immediately by handing off to the first skill in the arc (usually
 `socratic-method` on a concrete sub-topic). Make clear they can also invoke any
-skill directly — the plan is a recommendation, not a gate.
-
-If they want the plan kept, resolve the directory per `persistence.md` and write
-`log/<topic>-plan-<date>.md` (goal, level, the arc, the success threshold).
-Announce the path.
+skill directly — the plan is a recommendation, not a gate. As steps get done,
+tick them in `plans/<topic>.md`.
 
 ## Tone
 

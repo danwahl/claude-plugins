@@ -16,7 +16,9 @@ Add this marketplace, then browse or install a specific plugin:
 
 ### Claude.ai (skills)
 
-Claude.ai doesn't support Claude Code plugins, but it does accept Skills uploaded as zips. Each [release](https://github.com/danwahl/claude-plugins/releases) attaches a self-contained zip per skill — download the one you want and upload it manually in Claude.ai. (To build the zips yourself instead, see [Building skill zips locally](#building-skill-zips-locally).)
+Claude.ai doesn't support Claude Code plugins, but it does accept Skills uploaded as zips. Each [release](https://github.com/danwahl/claude-plugins/releases) attaches one zip per plugin, `<plugin>-v<version>.zip` (e.g. `learning-lab-v0.1.0.zip`). Download it and extract it to get that plugin's skills as individual, self-contained zips, then upload each in Claude.ai — it accepts one skill per upload.
+
+(To build the zips yourself instead, see [Building the zips locally](#building-the-zips-locally).)
 
 ## Plugins
 
@@ -43,9 +45,9 @@ claude --plugin-dir ./plugins/your-plugin-name
 
 Then invoke with `/your-plugin-name:skill-name`.
 
-## Building skill zips locally
+## Building the zips locally
 
-Releases attach the skill zips automatically, but to build them yourself run `/package-skills` (or `scripts/package-skills.sh`). It writes one self-contained zip per skill under `dist/` (gitignored), ready to upload to Claude.ai.
+Releases attach the plugin zips automatically, but to build them yourself run `/package-skills` (or `scripts/package-skills.sh`). It writes one `<plugin>-v<version>.zip` per plugin under `dist/` (gitignored); each contains that plugin's skills as individual zips ready to upload to Claude.ai.
 
 ## Versioning
 
@@ -53,7 +55,7 @@ Uses semantic versioning (MAJOR.MINOR.PATCH). Bump the version in both `plugin.j
 
 ## Releasing
 
-Pushing a `v*` tag triggers [`.github/workflows/release.yml`](.github/workflows/release.yml), which builds the skill zips from the tagged source and attaches them to the GitHub release (notes auto-generated). So cutting a release is just:
+Pushing a `v*` tag triggers [`.github/workflows/release.yml`](.github/workflows/release.yml), which builds the plugin zips from the tagged source and attaches them to the GitHub release (notes auto-generated). So cutting a release is just:
 
 ```bash
 git tag v1.2.0

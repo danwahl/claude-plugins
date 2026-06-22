@@ -2,25 +2,21 @@
 
 Personal Claude Code plugin marketplace.
 
-## Setup
+## Installation
 
-Add this marketplace to Claude Code:
+### Claude Code (plugins)
+
+Add this marketplace, then browse or install a specific plugin:
 
 ```
 /plugin marketplace add danwahl/claude-plugins
+/plugin                                              # browse everything
+/plugin install learning-lab@danwahl-claude-plugins  # or a specific plugin
 ```
 
-Then browse available plugins:
+### Claude.ai (skills)
 
-```
-/plugin
-```
-
-Or install a specific plugin:
-
-```
-/plugin install writing-audit@danwahl-claude-plugins
-```
+Claude.ai doesn't support Claude Code plugins, but it does accept Skills uploaded as zips. Each [release](https://github.com/danwahl/claude-plugins/releases) attaches a self-contained zip per skill — download the one you want and upload it manually in Claude.ai. (To build the zips yourself instead, see [Building skill zips locally](#building-skill-zips-locally).)
 
 ## Plugins
 
@@ -47,9 +43,9 @@ claude --plugin-dir ./plugins/your-plugin-name
 
 Then invoke with `/your-plugin-name:skill-name`.
 
-## Using skills on Claude.ai
+## Building skill zips locally
 
-Claude.ai does not support Claude Code plugins, but it does accept Skills uploaded as zips. Each tagged release attaches a self-contained zip per skill (see [Releases](https://github.com/danwahl/claude-plugins/releases)) — download and upload them manually in Claude.ai. To build them locally instead, run `/package-skills` (or `scripts/package-skills.sh`), which writes one zip per skill under `dist/`.
+Releases attach the skill zips automatically, but to build them yourself run `/package-skills` (or `scripts/package-skills.sh`). It writes one self-contained zip per skill under `dist/` (gitignored), ready to upload to Claude.ai.
 
 ## Versioning
 

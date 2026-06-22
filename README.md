@@ -49,8 +49,19 @@ Then invoke with `/your-plugin-name:skill-name`.
 
 ## Using skills on Claude.ai
 
-Claude.ai does not support Claude Code plugins, but it does accept Skills uploaded as zips. Run `/package-skills` (or `scripts/package-skills.sh`) to build one zip per skill under `dist/`, then upload them manually in Claude.ai.
+Claude.ai does not support Claude Code plugins, but it does accept Skills uploaded as zips. Each tagged release attaches a self-contained zip per skill (see [Releases](https://github.com/danwahl/claude-plugins/releases)) — download and upload them manually in Claude.ai. To build them locally instead, run `/package-skills` (or `scripts/package-skills.sh`), which writes one zip per skill under `dist/`.
 
 ## Versioning
 
 Uses semantic versioning (MAJOR.MINOR.PATCH). Bump the version in both `plugin.json` and `marketplace.json` — Claude Code uses the version to determine whether to update, so unchanged versions won't propagate.
+
+## Releasing
+
+Pushing a `v*` tag triggers [`.github/workflows/release.yml`](.github/workflows/release.yml), which builds the skill zips from the tagged source and attaches them to the GitHub release (notes auto-generated). So cutting a release is just:
+
+```bash
+git tag v1.2.0
+git push origin v1.2.0
+```
+
+Tag the marketplace version, and make sure the per-plugin versions are bumped first so Claude Code picks up the update.

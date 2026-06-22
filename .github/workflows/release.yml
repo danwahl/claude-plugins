@@ -1,0 +1,29 @@
+name: Release skills
+
+# Build each plugin's skills from the tagged source and attach them to the
+# GitHub release, so a release's zips can never drift from its tag. Cutting a
+# release is then just: git tag vX.Y.Z && git push origin vX.Y.Z
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the tagged commit
+        uses: actions/checkout@v4
+
+      - name: Package each plugin's skills into dist/
+        run: bash scripts/package-skills.sh
+
+      - name: Create/update the release and attach the skill zips
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          fail_on_unmatched_files: true
+          generate_release_notes: true

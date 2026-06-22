@@ -13,6 +13,13 @@
       "version": "1.0.1",
       "source": "./plugins/writing-audit",
       "category": "utilities"
+    },
+    {
+      "name": "learning-lab",
+      "description": "Topic-agnostic skills for evidence-based AI-assisted learning",
+      "version": "0.1.0",
+      "source": "./plugins/learning-lab",
+      "category": "education"
     }
   ]
 }

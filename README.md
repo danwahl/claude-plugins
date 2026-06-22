@@ -27,6 +27,7 @@ Or install a specific plugin:
 | Plugin | Description |
 |--------|-------------|
 | `writing-audit` | Audit and sharpen writing using craft principles. Invoke with `/writing-audit:writing-audit`. |
+| `learning-lab` | Evidence-based AI-assisted learning. Start with `/learning-lab:tutor` to plan how to learn anything; or invoke a technique directly: `:socratic-method`, `:feynman-method`, `:retrieval-quiz`, `:spaced-repetition`, `:learning-experiment`. |
 
 ## Adding a new plugin
 

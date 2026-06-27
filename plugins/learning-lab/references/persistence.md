@@ -25,6 +25,32 @@ else dir="$HOME/.claude/learning-lab"; fi
 echo "$dir"
 ```
 
+## When there's no durable filesystem (e.g. Claude.ai)
+
+The directory scheme above assumes a filesystem that **persists across sessions**
+— true in Claude Code, where `~/.claude/` is the user's own durable home. When
+this skill runs on **Claude.ai**, it executes in a per-conversation sandbox:
+anything written there is ephemeral and won't be there next session, and there
+may be no stable home directory at all. Cross-session persistence simply doesn't
+work in that environment.
+
+So before relying on files, check whether you actually have durable storage. If
+you don't (no shell, or a sandbox that resets between conversations), **fall back
+to artifacts**:
+
+- Produce each document — the plan, a card deck, a session log, an experiment
+  log — as an **artifact (or a single fenced code block) in the conversation**,
+  using the **same formats** defined below so it stays portable.
+- Tell the learner to **save it and paste it back at the start of the next
+  session** to resume — that pasted document is what a future session reads in
+  place of the file. For a `plans/<topic>.md`, this is what lets the next session
+  pick up where they left off instead of re-deriving the plan.
+- Don't silently skip persistence or pretend a write succeeded; name the
+  limitation and hand over the artifact.
+
+The rest of this file (formats, never-clobber, the plan/log/card conventions)
+applies unchanged — only the *storage medium* differs.
+
 ## Rules
 
 - **Announce the resolved path the first time you write** in a session

@@ -1,6 +1,6 @@
-# danwahl-claude-plugins
+# claude-plugins
 
-Personal Claude Code plugin marketplace.
+Personal Claude Code plugin marketplace by [danwahl](https://github.com/danwahl).
 
 ## Installation
 
@@ -19,6 +19,8 @@ Add this marketplace, then browse or install a specific plugin:
 Claude.ai doesn't support Claude Code plugins, but it does accept Skills uploaded as zips. Each [release](https://github.com/danwahl/claude-plugins/releases) attaches one zip per plugin, `<plugin>-v<version>.zip` (e.g. `learning-lab-v0.1.0.zip`). Download it and extract it to get that plugin's skills as individual, self-contained zips, then upload each in Claude.ai — it accepts one skill per upload.
 
 (To build the zips yourself instead, see [Building the zips locally](#building-the-zips-locally).)
+
+Note on persistence: `learning-lab` saves plans, decks, and logs to your filesystem in Claude Code, but Claude.ai runs skills in a per-conversation sandbox with no durable storage. There it falls back to emitting each document as a saveable artifact — keep it and paste it back at the start of your next session to resume.
 
 ## Plugins
 

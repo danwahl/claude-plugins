@@ -29,11 +29,20 @@ echo "$dir"
 
 The directory scheme assumes storage that **persists across sessions** — true in
 Claude Code (`~/.claude/` is the user's durable home), but not on **Claude.ai**,
-where the skill runs in an ephemeral per-conversation sandbox. There, before
-relying on files, **fall back to artifacts**: emit each document (plan, deck,
-log) as an artifact in the conversation using the same formats below, and tell
-the learner to save it and paste it back next session to resume. Don't pretend a
-write succeeded — name the limitation and hand the artifact over.
+where the skill runs in an ephemeral per-conversation sandbox. There, fall back
+in order:
+
+1. **A connected storage connector** (e.g. Google Drive) with read + write, if
+   one is available this session: persist to a `learning-lab/` folder there,
+   mirroring the same layout and formats below, and search it on entry to resume.
+   This is real cross-session persistence — prefer it to artifacts.
+2. **Artifacts**, otherwise: emit each document (plan, deck, log) as an artifact
+   in the conversation using the same formats, and tell the learner to save it
+   and paste it back next session to resume.
+
+Either way, apply the same formats and never-clobber rules, and don't pretend a
+write succeeded — if storage is ephemeral, name the limitation and hand the
+document over.
 
 ## Rules
 

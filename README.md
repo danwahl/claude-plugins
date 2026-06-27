@@ -20,7 +20,7 @@ Claude.ai doesn't support Claude Code plugins, but it does accept Skills uploade
 
 (To build the zips yourself instead, see [Building the zips locally](#building-the-zips-locally).)
 
-Note on persistence: `learning-lab` saves plans, decks, and logs to your filesystem in Claude Code, but Claude.ai runs skills in a per-conversation sandbox with no durable storage. There it falls back to emitting each document as a saveable artifact — keep it and paste it back at the start of your next session to resume.
+Note on persistence: `learning-lab` saves plans, decks, and logs to your filesystem in Claude Code, but Claude.ai runs skills in a per-conversation sandbox with no durable storage. There it persists to a connected storage connector (e.g. Google Drive) if you have one, and otherwise falls back to a saveable artifact — keep it and paste it back at the start of your next session to resume.
 
 ## Plugins
 

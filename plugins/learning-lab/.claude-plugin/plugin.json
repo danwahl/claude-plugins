@@ -1,6 +1,6 @@
 {
   "name": "learning-lab",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Topic-agnostic skills for evidence-based AI-assisted learning: a tutor that plans how to learn anything — saving a resumable plan and optionally scheduling future sessions — plus Socratic method, Feynman explain-back, retrieval practice, spaced repetition, and an N-of-1 self-experiment.",
   "author": {
     "name": "Dan Wahl",
